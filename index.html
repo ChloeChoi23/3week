@@ -72,12 +72,12 @@
   </style>
 </head>
 <body>
-  <audio id="Gosound" src="Go.wav"></audio>
-  <audio id="WhatYouWantsound" src="WhatYouWant.wav"></audio>
-  <audio id="FaSHioNsound" src="FaSHioN.wav"></audio>
+  <audio id="GoSound" src="Go.wav"></audio>
+  <audio id="WhatYouWantSound" src="WhatYouWant.wav"></audio>
+  <audio id="FaSHioNSound" src="FaSHioN.wav"></audio>
   <audio id="JoyRideSound" src="JoyRide.wav"></audio>
-  <audio id="Lullabysound" src="Lullaby.mp3"></audio>
-  <audio id="Eatsound" src="Eat.mp3"></audio>
+  <audio id="LullabySound" src="Lullaby.mp3"></audio>
+  <audio id="EatSound" src="Eat.mp3"></audio>
 
   <div class="main-title">
     <h1>이달의 신인</h1>
@@ -107,17 +107,17 @@
   gPlay = false;
   GoButton.onclick = function(){
     if(gPlay == true) {
-      document.getElementById('Gosound').pause();
+      document.getElementById('GoSound').pause();
       gPlay = false;
     }else{
-      document.getElementById('Gosound').play();
+      document.getElementById('GoSound').play();
       gPlay = true;
     }
   }
   wPlay = false;
   WhatYouWantButton.onclick = function(){
     if(wPlay == true){
-      document.getElementById('WhatYouWantsound').pause();
+      document.getElementById('WhatYouWantSound').pause();
       wPlay = false;
     }else{
       document.getElementById('WhatYouWantSound').play();
@@ -127,10 +127,10 @@
   fPlay = false;
   FaSHioNButton.onclick = function(){
     if(fPlay == true){
-      document.getElementById('FaSHioNsound').pause();
+      document.getElementById('FaSHioNSound').pause();
       fPlay = false;
     }else{
-      document.getElementById('FaSHioNsound').play();
+      document.getElementById('FaSHioNSound').play();
       fPlay = true;
     }
   }
@@ -140,36 +140,36 @@
       document.getElementById('JoyRideSound').pause();
       jPlay = false;
     }else{
-      document.getElementById('JoyRidesound').play();
+      document.getElementById('JoyRideSound').play();
       jPlay = true;
     }
   }
   lPlay = false;
   LullabyButton.onclick = function(){
     if(lPlay == true){
-      document.getElementById('Lullabysound').pause();
+      document.getElementById('LullabySound').pause();
       lPlay = false;
     }else{
-      document.getElementById('Lullabysound').play();
+      document.getElementById('LullabySound').play();
       lPlay = true;
     }
   }
   ePlay = false;
   EatButton.onclick = function(){
     if(ePlay == true){
-      document.getElementById('Eatsound').pause();
+      document.getElementById('EatSound').pause();
       ePlay = false;
     }else{
       document.getElementById('Eatsound').play();
       ePlay = true;
     }
   }
-  Gosound.onended = () => gPlay = false;
-  WhatYouWantsound.onended = () => wPlay = false;
-  FaSHioNsound.onended = () => fPlay = false;
-  JoyRidesound.onended = () => jPlay = false;
-  Lullabysound.onended = () => lPlay = false;
-  Eatsound.onended = () => ePlay = false;
+  GoSound.onended = () => gPlay = false;
+  WhatYouWantSound.onended = () => wPlay = false;
+  FaSHioNSound.onended = () => fPlay = false;
+  JoyRideSound.onended = () => jPlay = false;
+  LullabySound.onended = () => lPlay = false;
+  EatSound.onended = () => ePlay = false;
 </script>
 </body>
 </html>
