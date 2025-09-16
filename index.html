@@ -73,7 +73,7 @@
 </head>
 <body>
   <audio id="Gosound" src="Go.wav"></audio>
-  <audio id="WhatYouWantSound" src="WhatYouWant.wav"></audio>
+  <audio id="WhatYouWantsound" src="WhatYouWant.wav"></audio>
   <audio id="FaSHioNsound" src="FaSHioN.wav"></audio>
   <audio id="JoyRideSound" src="JoyRide.wav"></audio>
   <audio id="Lullabysound" src="Lullaby.mp3"></audio>
@@ -117,7 +117,7 @@
   wPlay = false;
   WhatYouWantButton.onclick = function(){
     if(wPlay == true){
-      document.getElementById('WhatYouWantSound').pause();
+      document.getElementById('WhatYouWantsound').pause();
       wPlay = false;
     }else{
       document.getElementById('WhatYouWantSound').play();
@@ -140,36 +140,36 @@
       document.getElementById('JoyRideSound').pause();
       jPlay = false;
     }else{
-      document.getElementById('JoyRideSound').play();
+      document.getElementById('JoyRidesound').play();
       jPlay = true;
     }
   }
   lPlay = false;
   LullabyButton.onclick = function(){
     if(lPlay == true){
-      document.getElementById('LullabySound').pause();
+      document.getElementById('Lullabysound').pause();
       lPlay = false;
     }else{
-      document.getElementById('LullabySound').play();
+      document.getElementById('Lullabysound').play();
       lPlay = true;
     }
   }
   ePlay = false;
   EatButton.onclick = function(){
     if(ePlay == true){
-      document.getElementById('EatSound').pause();
+      document.getElementById('Eatsound').pause();
       ePlay = false;
     }else{
-      document.getElementById('EatSound').play();
+      document.getElementById('Eatsound').play();
       ePlay = true;
     }
   }
-  GoSound.onended = () => gPlay = false;
-  WhatYouWantSound.onended = () => wPlay = false;
-  FaSHioNSound.onended = () => fPlay = false;
-  JoyRideSound.onended = () => jPlay = false;
-  LullabySound.onended = () => lPlay = false;
-  EatSound.onended = () => ePlay = false;
+  Gosound.onended = () => gPlay = false;
+  WhatYouWantsound.onended = () => wPlay = false;
+  FaSHioNsound.onended = () => fPlay = false;
+  JoyRidesound.onended = () => jPlay = false;
+  Lullabysound.onended = () => lPlay = false;
+  Eatsound.onended = () => ePlay = false;
 </script>
 </body>
 </html>
