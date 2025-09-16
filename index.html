@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이달의 신인</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('Cortis1.JPG') no-repeat center center;
+      background-size: cover;
+      min-height: 100vh;
+    }
+    .main-title {
+      font-family: 'Paperozi', serif;
+      font-size: 40px;
+      color: white;
+      text-align: center;
+    }
+    .subtitle {
+      font-family: 'Paperozi', serif;
+      font-size: 18px;
+      color: white;
+      text-align: center;
+      margin-top: 16px;
+    }
+    @font-face {
+      font-family: 'Paperozi';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
+      font-weight: 900;
+      font-display: swap;
+    }
+    .album-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+      max-width: 1100px;
+      margin: 50px auto 0 auto;
+    }
+    .album-card {
+      background: #fff;
+      border-radius: 10px;
+      width: 280px;
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 0;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .album-label {
+      width: 100%;
+      background: rgba(0,0,0,0.46);
+      color: #fff;
+      text-align: center;
+      padding: 18px 0 12px 0;
+      font-size: 23px;
+      letter-spacing: 1px;
+      font-weight: bold;
+      font-family: 'Paperozi', serif;
+    }
+    @media (max-width: 950px) {
+      .album-card { width: 170px; height: 170px; }
+      .album-label { font-size: 15px; padding: 10px 0 7px 0; }
+      .album-grid { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <audio id="Gosound" src="Go.wav"></audio>
+  <audio id="WhatYouWantSound" src="WhatYouWant.wav"></audio>
+  <audio id="FaSHioNsound" src="FaSHioN.wav"></audio>
+  <audio id="JoyRideSound" src="JoyRide.wav"></audio>
+  <audio id="Lullabysound" src="Lullaby.mp3"></audio>
+  <audio id="Eatsound" src="Eat.mp3"></audio>
+
+  <div class="main-title">
+    <h1>이달의 신인</h1>
+    <p class="subtitle">CORTIS-'COLOR OUTSIDE THE LINES-EP'<br>노래를 선택해보세요!</p>
+  </div>
+  <div class="album-grid">
+    <div class="album-card" id="GoButton" style="background-image: url('Martin.JPG');">
+      <div class="album-label">01.GO!</div>
+    </div>
+    <div class="album-card" id="WhatYouWantButton" style="background-image: url('James.JPG');">
+      <div class="album-label">02.What You Want</div>
+    </div>
+    <div class="album-card" id="FaSHioNButton" style="background-image: url('Joohoon.JPG');">
+      <div class="album-label">03.FaSHioN</div>
+    </div>
+    <div class="album-card" id="JoyRideButton" style="background-image: url('Sunghyun.JPG');">
+      <div class="album-label">04.JoyRide</div>
+    </div>
+    <div class="album-card" id="LullabyButton" style="background-image: url('Gunho.JPG');">
+      <div class="album-label">05.Lullaby</div>
+    </div>
+    <div class="album-card" id="EatButton" style="background-image: url('What You Want.JPG');">
+      <div class="album-label">06.What You Want (feat.Teezo Touchdown)</div>
+    </div>
+  </div>
+<script>
+  gPlay = false;
+  GoButton.onclick = function(){
+    if(gPlay == true) {
+      document.getElementById('Gosound').pause();
+      gPlay = false;
+    }else{
+      document.getElementById('Gosound').play();
+      gPlay = true;
+    }
+  }
+  wPlay = false;
+  WhatYouWantButton.onclick = function(){
+    if(wPlay == true){
+      document.getElementById('WhatYouWantSound').pause();
+      wPlay = false;
+    }else{
+      document.getElementById('WhatYouWantSound').play();
+      wPlay = true;
+    }
+  }
+  fPlay = false;
+  FaSHioNButton.onclick = function(){
+    if(fPlay == true){
+      document.getElementById('FaSHioNsound').pause();
+      fPlay = false;
+    }else{
+      document.getElementById('FaSHioNsound').play();
+      fPlay = true;
+    }
+  }
+  jPlay = false;
+  JoyRideButton.onclick = function(){
+    if(jPlay == true){
+      document.getElementById('JoyRideSound').pause();
+      jPlay = false;
+    }else{
+      document.getElementById('JoyRideSound').play();
+      jPlay = true;
+    }
+  }
+  lPlay = false;
+  LullabyButton.onclick = function(){
+    if(lPlay == true){
+      document.getElementById('LullabySound').pause();
+      lPlay = false;
+    }else{
+      document.getElementById('LullabySound').play();
+      lPlay = true;
+    }
+  }
+  ePlay = false;
+  EatButton.onclick = function(){
+    if(ePlay == true){
+      document.getElementById('EatSound').pause();
+      ePlay = false;
+    }else{
+      document.getElementById('EatSound').play();
+      ePlay = true;
+    }
+  }
+  GoSound.onended = () => gPlay = false;
+  WhatYouWantSound.onended = () => wPlay = false;
+  FaSHioNSound.onended = () => fPlay = false;
+  JoyRideSound.onended = () => jPlay = false;
+  LullabySound.onended = () => lPlay = false;
+  eSound.onended = () => ePlay = false;
+</script>
+</body>
+</html>
+
