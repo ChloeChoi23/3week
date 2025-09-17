@@ -64,6 +64,31 @@
       font-weight: bold;
       font-family: 'Paperozi', serif;
     }
+    .album-card.active::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(64, 64, 64, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+    .pause-btn {
+      display: none;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: rgba(255,255,255,0.82);
+      color: #111;
+      border-radius: 6px;
+      padding: 8px 20px;
+      font-size: 19px;
+      border: none;
+      cursor: pointer;
+    }
+    .album-card.active .pause-btn {
+      display: block;
+    }
     @media (max-width: 950px) {
       .album-card { width: 170px; height: 170px; }
       .album-label { font-size: 15px; padding: 10px 0 7px 0; }
@@ -86,92 +111,122 @@
   <div class="album-grid">
     <div class="album-card" id="GoButton" style="background-image: url('Martin.JPG');">
       <div class="album-label">01.GO!</div>
+      <button class="pause-btn">pause</button>
     </div>
     <div class="album-card" id="WhatYouWantButton" style="background-image: url('James.JPG');">
       <div class="album-label">02.What You Want</div>
+      <button class="pause-btn">pause</button>
     </div>
     <div class="album-card" id="FaSHioNButton" style="background-image: url('Joohoon.JPG');">
       <div class="album-label">03.FaSHioN</div>
+      <button class="pause-btn">pause</button>
     </div>
     <div class="album-card" id="JoyRideButton" style="background-image: url('Sunghyun.JPG');">
       <div class="album-label">04.JoyRide</div>
+      <button class="pause-btn">pause</button>
     </div>
     <div class="album-card" id="LullabyButton" style="background-image: url('Gunho.JPG');">
       <div class="album-label">05.Lullaby</div>
+      <button class="pause-btn">pause</button>
     </div>
     <div class="album-card" id="EatButton" style="background-image: url('What You Want.JPG');">
       <div class="album-label">06.What You Want (feat.Teezo Touchdown)</div>
+      <button class="pause-btn">pause</button>
     </div>
   </div>
 <script>
+  function pauseAll() {
+    document.getElementById('GoSound').pause();
+    document.getElementById('WhatYouWantSound').pause();
+    document.getElementById('FaSHioNSound').pause();
+    document.getElementById('JoyRideSound').pause();
+    document.getElementById('LullabySound').pause();
+    document.getElementById('EatSound').pause();
+    document.querySelectorAll('.album-card').forEach(ele => ele.classList.remove('active'));
+    gPlay = wPlay = fPlay = jPlay = lPlay = ePlay = false;
+  }
+
   gPlay = false;
-  GoButton.onclick = function(){
+  GoButton.onclick = function(e){
     if(gPlay == true) {
-      document.getElementById('GoSound').pause();
-      gPlay = false;
+      pauseAll();
     }else{
+      pauseAll();
       document.getElementById('GoSound').play();
       gPlay = true;
+      GoButton.classList.add('active');
     }
   }
   wPlay = false;
-  WhatYouWantButton.onclick = function(){
+  WhatYouWantButton.onclick = function(e){
     if(wPlay == true){
-      document.getElementById('WhatYouWantSound').pause();
-      wPlay = false;
+      pauseAll();
     }else{
+      pauseAll();
       document.getElementById('WhatYouWantSound').play();
       wPlay = true;
+      WhatYouWantButton.classList.add('active');
     }
   }
   fPlay = false;
-  FaSHioNButton.onclick = function(){
+  FaSHioNButton.onclick = function(e){
     if(fPlay == true){
-      document.getElementById('FaSHioNSound').pause();
-      fPlay = false;
+      pauseAll();
     }else{
+      pauseAll();
       document.getElementById('FaSHioNSound').play();
       fPlay = true;
+      FaSHioNButton.classList.add('active');
     }
   }
   jPlay = false;
-  JoyRideButton.onclick = function(){
+  JoyRideButton.onclick = function(e){
     if(jPlay == true){
-      document.getElementById('JoyRideSound').pause();
-      jPlay = false;
+      pauseAll();
     }else{
+      pauseAll();
       document.getElementById('JoyRideSound').play();
       jPlay = true;
+      JoyRideButton.classList.add('active');
     }
   }
   lPlay = false;
-  LullabyButton.onclick = function(){
+  LullabyButton.onclick = function(e){
     if(lPlay == true){
-      document.getElementById('LullabySound').pause();
-      lPlay = false;
+      pauseAll();
     }else{
+      pauseAll();
       document.getElementById('LullabySound').play();
       lPlay = true;
+      LullabyButton.classList.add('active');
     }
   }
   ePlay = false;
-  EatButton.onclick = function(){
+  EatButton.onclick = function(e){
     if(ePlay == true){
-      document.getElementById('EatSound').pause();
-      ePlay = false;
+      pauseAll();
     }else{
+      pauseAll();
       document.getElementById('EatSound').play();
       ePlay = true;
+      EatButton.classList.add('active');
     }
   }
-  GoSound.onended = () => gPlay = false;
-  WhatYouWantSound.onended = () => wPlay = false;
-  FaSHioNSound.onended = () => fPlay = false;
-  JoyRideSound.onended = () => jPlay = false;
-  LullabySound.onended = () => lPlay = false;
-  EatSound.onended = () => ePlay = false;
+
+  document.querySelectorAll('.album-card').forEach(function(card, idx){
+    card.querySelector('.pause-btn').onclick = function(e){
+      e.stopPropagation();
+      pauseAll();
+    }
+  });
+  
+  GoSound.onended = pauseAll;
+  WhatYouWantSound.onended = pauseAll;
+  FaSHioNSound.onended = pauseAll;
+  JoyRideSound.onended = pauseAll;
+  LullabySound.onended = pauseAll;
+  EatSound.onended = pauseAll;
 </script>
 </body>
 </html>
-
 
